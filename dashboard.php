@@ -14,26 +14,27 @@ $user_password = htmlspecialchars($_SESSION['user_password']);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="stylesheet" href="styles.css">
-     <link rel="stylesheet" type="text/css" href="dashboard-style.css">
+    <link rel="stylesheet" type="text/css" href="dashboard-style.css">
+    <link rel="stylesheet" type="text/css" href="global.css">
     <title>Dashboard</title>
 </head>
 <body>
     
     <nav class="sidebar">
-    <h1>Hello, <?php echo $user_firstname;?>!</h1> 
+    <h2>Hello </h2> 
+    <h1><?php echo $user_firstname; ?></h1> 
     <h2>Welcome to the Dashboard</h2>
     <div>
         <a href="/WEBSITE/categories/categories.php"><button>Categories</button></a>
-    </div><br>
+    </div>
 
     <div>
         <a href="/WEBSITE/products/products.php"><button>Products</button></a>
-    </div><br>
+    </div>
 
     <div>
         <a href="/WEBSITE/users/users.php"><button>Users</button></a>
-    </div><br>
+    </div>
    </div>
 </nav>
 
