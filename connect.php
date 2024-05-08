@@ -1,13 +1,12 @@
 <?php
-
 session_start();
-    $_SESSION['user_firstname'] = $_POST['user_firstname'];
-    $_SESSION['user_lastname'] = $_POST['user_lastname'];
-    $_SESSION['user_gender'] = $_POST['user_gender'];
-    $_SESSION['user_contactNum'] = $_POST['user_contactNum'];
-    $_SESSION['user_email'] = $_POST['user_email'];
-    $_SESSION['user_password'] = $_POST['user_password'];
-    
+
+$_SESSION['user_firstname'] = $_POST['user_firstname'];
+$_SESSION['user_lastname'] = $_POST['user_lastname'];
+$_SESSION['user_gender'] = $_POST['user_gender'];
+$_SESSION['user_contactNum'] = $_POST['user_contactNum'];
+$_SESSION['user_email'] = $_POST['user_email'];
+
 if(isset($_POST['user_firstname'], $_POST['user_lastname'], $_POST['user_gender'], $_POST['user_contactNum'], $_POST['user_email'], $_POST['user_password'])) {
     $user_firstname = $_POST['user_firstname'];
     $user_lastname = $_POST['user_lastname'];
@@ -21,20 +20,32 @@ if(isset($_POST['user_firstname'], $_POST['user_lastname'], $_POST['user_gender'
         if($connection->connect_error){
             die('Connection Failed! : '.$connection->connect_error);
         } else {
-            $statement = $connection->prepare("INSERT INTO user (user_firstname, user_lastname, user_gender, user_contactNum, user_email, user_password) VALUES (?, ?, ?, ?, ?, ?)");
-            $statement->bind_param("ssssss", $user_firstname, $user_lastname, $user_gender, $user_contactNum, $user_email, $user_password);
-            
-            if ($statement->execute()) {
-               
-                header("Location: login.php");
-                exit();
+            // Check if the email already exists in the database
+            $query = "SELECT * FROM user WHERE user_email = ?";
+            $stmt = $connection->prepare($query);
+            $stmt->bind_param("s", $user_email);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $row_count = $result->num_rows;
+            $stmt->close();
+
+            if ($row_count > 0) {
+                echo "Email address already exists.";
             } else {
-                echo "Error occurred while registering. Please try again.";
+                $statement = $connection->prepare("INSERT INTO user (user_firstname, user_lastname, user_gender, user_contactNum, user_email, user_password) VALUES (?, ?, ?, ?, ?, ?)");
+                $statement->bind_param("ssssss", $user_firstname, $user_lastname, $user_gender, $user_contactNum, $user_email, $user_password);
+
+                if ($statement->execute()) {
+                    header("Location: login.php");
+                    exit();
+                } else {
+                    echo "Error occurred while registering. Please try again.";
+                }
+
+                $statement->close();
             }
-            
-            $statement->close();
-            $connection->close();
         }
+        $connection->close();
     } else {
         echo "All fields are required.";
     }
