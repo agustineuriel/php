@@ -50,7 +50,7 @@ if ($connection->connect_error) {
     </nav>
 
     <div class="content">
-    <h1 class="header">EA Street Motoshop Categories</h1>
+    <h1 class="header">EA Street Motoshop Products</h1>
     <div>
         <a href="/WEBSITE/products/view_products.php">
             <button> <img src="../pictures/view.svg">View Products</button></a>

@@ -58,7 +58,7 @@ if ($connection->connect_error) {
         <a href="/WEBSITE/users/users.php"><button class="inactive"> <img src="pictures/users.svg">Users</button></a>
     </div>
     <div>
-        <a href="/WEBSITE/login.php"><button class="inactive"> <img src="pictures/logout.svg">Log Out</button></a>
+        <a href="/WEBSITE/logout.php"><button class="inactive"> <img src="pictures/logout.svg">Log Out</button></a>
     </div>
    </div>
     </nav>

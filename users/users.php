@@ -67,7 +67,7 @@ if ($connection->connect_error) {
    </div>
 </nav>
    <div class="content">
-   <h1 class="header">Users</h1>
+   <h1 class="header">EA Street Motoshop Users</h1>
 
 <?php
 
