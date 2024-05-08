@@ -32,9 +32,18 @@ $password = $_POST["password"];
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
     ?>
+
         <div class="center">
+            <div class="headerlogo">
+                <img class ="roundlogo" src="LOGO.png" alt="logo">
+                <h3 class = "padleft"> EA Street Motoshop <h3>
+            </div>
+
             <h2><?php echo "Login successful"; ?></h2>
             <h1><?php echo "Welcome, " . $row['user_firstname'] . "!"; ?></h1>
+            <div class="dashboard3d">
+            <img src="dashboard.png" alt="dashboard">
+            </div>
             <a href="dashboard.php"><button class="viewDashboard"> View Dashboard <img class="next" src="next.png" alt="Next"></button></a>
         </div>
 

@@ -1,6 +1,6 @@
 @font-face{
     font-family: mono;
-    src: url(MajorMonoDisplay-Regular.ttf)
+    src: url(RubikMonoOne-Regular.ttf)
 }
 @font-face {
     font-family: inter;
@@ -27,11 +27,13 @@ h1{
     font-family: inter;
     font-weight: 700;
     font-size: 3rem;
+    margin: 0.5rem;
 }
 
 h2{
     font-family: inter;
     font-weight: 400;
+    margin: 0.5rem;
     font-size: 2rem;
 }
 
@@ -66,6 +68,7 @@ p{
 a{
     font-style: italic;
     color: blue;
+    text-decoration: none;
 }
 
 .container {
@@ -81,6 +84,26 @@ a{
     object-fit: cover;
 }
 
+.center{
+    padding: 1rem;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;   
+    text-align: center;
+}
+
+.dashboard3d img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 25rem;
+    width: 45rem;
+    object-fit: cover;
+}
+
 .viewDashboard{
     background: white;
     font-weight: 700;
@@ -90,9 +113,10 @@ a{
     font-size: x-large;
     display: flex; 
     align-items: center; 
+    color: black;    
+    text-align: center;
     justify-content: space-between;
-    color: black;
-    
+    margin-left: auto;
 }
 
 .viewDashboard img{
@@ -100,12 +124,27 @@ a{
  width: 10%;
 }
 
-.center{
-    margin: 2rem;
-    background-color: white;
+.roundlogo{
+    height: 5%;
+    width: 5%;
+    object-fit: fill;
+}
+
+.dashboardimg{
+    height: 10%;
+    width: 10%;
+    object-fit: fill;
+}
+
+.headerlogo{
     display: flex;
     align-items: center;
+    flex-direction: row;
     justify-content: center;
-    flex-direction: column;
-    height: 100%;   
+    font-family: mono;
+    font-size: x-large;
+}
+
+.padleft{
+    padding-left: 1rem;
 }

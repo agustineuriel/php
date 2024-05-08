@@ -1,22 +1,17 @@
 /* dashboard-style.css */
 .sidebar {
-    background: white;
-    border-radius: 0.5rem;
-    padding: 1rem;
+  width: 20%;
+  float: left;
+  min-height: 100vh;
+  background-color: white;
+  padding: 1rem;
+  background-color: #f4f4f4;
+  align-content: center;
+  justify-content: center;
 }
 
 
-
-.sidebar a {
-    text-decoration: none;
-    color: #337ab7;
-}
-
-.sidebar a:hover {
-    color: #23527c;
-}
-
-.nav-links {
+.sidebar a button {
     color:              #212121;
     font-size:            medium;
     background-color:   #FFFFFF; 
@@ -29,11 +24,13 @@
     border-radius:        1rem;
     background-color:     #F9FAFB; 
     transition:           background-color 0.2s ease-in-out, color 0.2s ease-in-out; 
-    font:                 var(--font-source-sans-pro);
+    font-family:          inter;
+    width: 100%;
+    margin-bottom: 0.5rem;
     
   
     &:hover {
-      background-color: #E6E6FA; 
+      background-color: lightcoral; 
       color: #212121; 
     }
   
@@ -49,9 +46,12 @@
     padding-left: 0.5rem;
   }
   
-  .nav-link-active {
+  .active {
     color: #FFFFFF; 
-    background-color: #6F42C1; 
+    background-color: red; 
   }
   
 
+.sidebarLogo{
+  width: 20%;
+}
