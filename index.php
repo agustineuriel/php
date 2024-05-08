@@ -34,6 +34,7 @@
         </div>
 
     </div>
+    
     <label>Contact Number</label>
     <input type="text" name="user_contactNum" name="user_contactNum" required>
 

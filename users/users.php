@@ -27,9 +27,9 @@ $result = mysqli_query($connection, $query);
 if ($result) {
     // Check if there are any users in the database
     if (mysqli_num_rows($result) > 0) {
-        // Display user info sa table
+        // Display user info in a table
         echo "<table border='1'>";
-        echo "<tr><th>First Name</th><th>Last Name</th><th>Gender</th><th>Contact Number</th><th>Email</th><th>Password</th></tr>";
+        echo "<tr><th>First Name</th><th>Last Name</th><th>Gender</th><th>Contact Number</th><th>Email</th><th>Password</th><th>Action</th></tr>";
         while ($row = mysqli_fetch_assoc($result)) {
             echo "<tr>";
             echo "<td>".$row['user_firstName']."</td>";
@@ -38,6 +38,7 @@ if ($result) {
             echo "<td>".$row['user_contactNum']."</td>";
             echo "<td>".$row['user_email']."</td>";
             echo "<td>".$row['user_password']."</td>";
+            echo "<td><a href='edit_users.php?id=".$row['user_email']."'>Edit</a> | <a href='delete_users.php?id=".$row['user_email']."'>Delete</a></td>";
             echo "</tr>";
         }
         echo "</table>";
