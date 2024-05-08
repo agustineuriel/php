@@ -10,12 +10,10 @@ $password = $_POST["password"];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css"> 
+    <link rel="stylesheet" href="global.css"> 
     <title>Register</title>
 </head>
-
-<body class="background">
-
+<body>
     <?php
     $email = $_POST['email'];
     $password = $_POST['password'];
@@ -34,10 +32,10 @@ $password = $_POST["password"];
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
     ?>
-        <div class="content">
-            <h4><?php echo "Login successful!"; ?></h4>
-            <h5><?php echo "Welcome, " . $row['user_firstname'] . "!"; ?></h5>
-            <a href="dashboard.php"><button class="button2">View Dashboard</button></a>
+        <div class="center">
+            <h2><?php echo "Login successful"; ?></h2>
+            <h1><?php echo "Welcome, " . $row['user_firstname'] . "!"; ?></h1>
+            <a href="dashboard.php"><button class="viewDashboard"> View Dashboard <img class="next" src="next.png" alt="Next"></button></a>
         </div>
 
     <?php
@@ -45,8 +43,5 @@ $password = $_POST["password"];
         echo "Incorrect email/password!";
     }
     ?>
-
-<link rel="stylesheet" href="styles.css">
-
 </body>
 </html>
