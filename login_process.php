@@ -10,8 +10,8 @@ $password = $_POST["password"];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="global.css"> 
-    <title>Register</title>
+    <link rel="stylesheet" href="css/global.css"> 
+    <title>Login</title>
 </head>
 <body>
     <?php
@@ -35,16 +35,16 @@ $password = $_POST["password"];
 
         <div class="center">
             <div class="headerlogo">
-                <img class ="roundlogo" src="LOGO.png" alt="logo">
+                <img class ="roundlogo" src="pictures/LOGO.png" alt="logo">
                 <h3 class = "padleft"> EA Street Motoshop <h3>
             </div>
 
             <h2><?php echo "Login successful"; ?></h2>
             <h1><?php echo "Welcome, " . $row['user_firstname'] . "!"; ?></h1>
             <div class="dashboard3d">
-            <img src="dashboard.png" alt="dashboard">
+            <img src="pictures/dashboard.png" alt="dashboard">
             </div>
-            <a href="dashboard.php"><button class="viewDashboard"> View Dashboard <img class="next" src="next.png" alt="Next"></button></a>
+            <a href="dashboard.php"><button class="viewDashboard"> View Dashboard <img class="next" src="pictures/next.png" alt="Next"></button></a>
         </div>
 
     <?php

@@ -21,37 +21,37 @@ if ($connection->connect_error) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="sidebar.css">
-    <link rel="stylesheet" type="text/css" href="global.css">
-    <link rel="stylesheet" type="text/css" href="content.css">
+    <link rel="stylesheet" type="text/css" href="css/sidebar.css">
+    <link rel="stylesheet" type="text/css" href="css/global.css">
+    <link rel="stylesheet" type="text/css" href="css/content.css">
     <title>Dashboard</title>
 </head>
 <body>
     
     <nav class="sidebar">
     <div class="headerlogo">
-                <img class ="sidebarLogo" src="LOGO.png" alt="logo">
+                <img class ="sidebarLogo" src="pictures/LOGO.png" alt="logo">
                 <h3 class = "padleft"> EA Street Motoshop <h3>
     </div>
     <h2>Hello, </h2> 
     <h1><?php echo $user_firstname; ?>!</h1> 
     <h2>Welcome to EA Street</h2>
     <div>
-        <a href="/WEBSITE/dashboard.php"><button class="active"> <img src="dashboard.svg">Dashboard</button></a>
+        <a href="/WEBSITE/dashboard.php"><button class="active"> <img src="pictures/dashboard.svg">Dashboard</button></a>
     </div>
     <div>
-        <a href="/WEBSITE/categories/categories.php"><button class="inactive"> <img src="categories.svg">Categories</button></a>
-    </div>
-
-    <div>
-        <a href="/WEBSITE/products/products.php"><button class="inactive"> <img src="products.svg">Products</button></a>
+        <a href="/WEBSITE/categories/categories.php"><button class="inactive"> <img src="pictures/categories.svg">Categories</button></a>
     </div>
 
     <div>
-        <a href="/WEBSITE/users/users.php"><button class="inactive"> <img src="users.svg">Users</button></a>
+        <a href="/WEBSITE/products/products.php"><button class="inactive"> <img src="pictures/products.svg">Products</button></a>
+    </div>
+
+    <div>
+        <a href="/WEBSITE/users/users.php"><button class="inactive"> <img src="pictures/users.svg">Users</button></a>
     </div>
     <div>
-        <a href="/WEBSITE/login.php"><button class="inactive"> <img src="logout.svg">Log Out</button></a>
+        <a href="/WEBSITE/login.php"><button class="inactive"> <img src="pictures/logout.svg">Log Out</button></a>
     </div>
    </div>
     </nav>
@@ -65,6 +65,9 @@ if ($result->num_rows > 0) {
         <div class="content">
             <div class="header"> Dashboard 
             </div>
+                <div class="dashboard3d">
+                <img src="pictures/dashboard.png" alt="dashboard">
+
             <table>
                 <thead>
                     <tr>

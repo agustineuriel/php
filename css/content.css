@@ -1,0 +1,90 @@
+.content {
+  float: left;
+  min-height: 100%;
+  background-color: white;
+  padding: 1rem;
+  align-content: center;
+  justify-content: center;
+  width: 75%;
+  overflow-y: scroll;
+}
+
+.header {
+  font-family: inter;
+  font-weight: 700;
+  font-size: 3rem;
+}
+
+table {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+th,
+
+td {
+  border: 1px solid #212121;
+  border-width: 0.1rem;
+  padding: 1rem;
+  text-align: center;
+  font-family: inter;
+}
+
+th {
+  font-size: xx-large;
+  font-weight: bold;
+  background-color: white;
+  padding: 1rem;
+  font-family: inter;
+}
+
+td {
+  font-size: larger;
+  text-align: center;
+  font-family: inter;
+}
+
+.content a button{
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: inter;
+  font-size:            xx-large;
+  background-color:   #FFFFFF; 
+  display:              flex;
+  height:               fit-content;
+  flex-grow:            1;
+  align-items:          center;
+  justify-content:      center;
+  gap:                  0.2rem;
+  border-radius:        1rem;
+  transition:           background-color 0.2s ease-in-out, color 0.2s ease-in-out; 
+  font-family:          inter;
+  width:                100%;
+  margin-bottom:        0.5rem;
+
+  
+
+  &:hover {
+    background-color: mistyrose; 
+    color: #212121; 
+  }
+
+
+  @media (min-width: 768px) { 
+    flex-grow: initial;
+    justify-content: flex-start;
+    padding: 2px 3px;
+  }
+}
+
+.content a button img{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 10rem;
+  width: 10rem;
+  border-radius: 0.5rem;
+  object-fit: cover;
+  padding-right: 1rem;
+}

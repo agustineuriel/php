@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="global.css">
+    <link rel="stylesheet" type="text/css" href="css/global.css">
 </head>
 <body>
 <div class="container">
     <div class="column">
-    <img class="logo" src="FULL COVER.jpg" alt="Cover Image">
+    <img class="logo" src="pictures/FULL COVER.jpg" alt="Cover Image">
     </div>
     <div class="column">
     <form action="login_process.php" method="post">

@@ -2,8 +2,8 @@
 .sidebar {
   width: 20%;
   float: left;
-  min-height: 100vh;
-  background-color: #F4F4F4;
+  height: 96dvh;
+  background-color: #f4f4f4;
   padding: 1rem;
   align-content: center;
   justify-content: center;
@@ -28,7 +28,7 @@
     
   
     &:hover {
-      background-color: lightcoral; 
+      background-color: mistyrose; 
       color: #212121; 
     }
   
@@ -56,13 +56,13 @@
     justify-content:      center;
     gap:                  0.2rem;
     border-radius:        1rem;
-    background-color:    gray; 
+    background-color:    lightcoral; 
     font-family:          inter; 
     width:                100%;
     margin-bottom:        0.5rem;
     
     &:hover {
-      background-color: lightcoral; 
+      background-color: mistyrose; 
       color: #212121; 
     }
   
@@ -77,4 +77,13 @@
 
 .sidebarLogo{
   width: 20%;
+}
+
+.buttonSubmit{
+  background: lightcoral;
+  font-size: medium;
+  color: white; 
+  font-weight: 700;
+  width: 15%;
+  font-family: inter;
 }

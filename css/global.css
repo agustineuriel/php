@@ -8,9 +8,9 @@
   }
 
 body {
-    overflow: hidden;
     margin: 0;
     padding: 0;
+    overflow: auto;
 }
 
 form {
@@ -21,6 +21,14 @@ form {
     justify-content: center;
     flex-direction: column;
     height: 100%;
+}
+
+form select{
+    border-width: 0.1rem;
+    border-color: #212121;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 h1{
@@ -52,11 +60,12 @@ input{
 }
 
 .register{
-    background: #ED0800;
+    background: lightcoral;
     font-size: medium;
     color: white; 
     font-weight: 700;
     width: 30%;
+    font-family: inter;
 }
 
 p{
@@ -143,6 +152,7 @@ a{
     justify-content: center;
     font-family: mono;
     font-size: x-large;
+    padding-left: 1rem;
 }
 
 .padleft{
