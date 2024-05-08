@@ -3,25 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
     <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="login-style.css">
+    <link rel="stylesheet" type="text/css" href="global.css">
 </head>
 <body>
-   
-    <form class="form2" action="login_process.php" method="post">
-    <h2>Login</h2>
-        <label>Email:</label><br>
-        <input type="text" name="email" required><br>
+<div class="container">
+    <div class="column">
+    <img class="logo" src="FULL COVER.jpg" alt="Cover Image">
+    </div>
+    <div class="column">
+    <form action="login_process.php" method="post">
+    <h1>Login</h1>
+        <label>Email</label>
+        <input type="text" name="email" required>
 
-        <label>Password:</label><br>
-        <input type="password" name="password" required><br><br>
+        <label>Password</label>
+        <input type="password" name="password" required>
 
-        <input type="submit" value="Login">
-        <p>Don't have an account yet? <a href="theindex.php">Register here</a>.</p>
+        <input class="register" type="submit" value="Login">
+        <p>Don't have an account yet? <a href="theindex.php">Register here</a></p>
     </form>
-
-    <br><br>
-   
+</div>
+</div>
 </body>
 </html>
