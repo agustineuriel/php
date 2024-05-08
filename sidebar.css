@@ -3,17 +3,16 @@
   width: 20%;
   float: left;
   min-height: 100vh;
-  background-color: white;
+  background-color: #F4F4F4;
   padding: 1rem;
-  background-color: #f4f4f4;
   align-content: center;
   justify-content: center;
 }
 
 
-.sidebar a button {
+.inactive {
     color:              #212121;
-    font-size:            medium;
+    font-size:            large;
     background-color:   #FFFFFF; 
     display:              flex;
     height:               3rem;
@@ -22,11 +21,10 @@
     justify-content:      center;
     gap:                  0.2rem;
     border-radius:        1rem;
-    background-color:     #F9FAFB; 
     transition:           background-color 0.2s ease-in-out, color 0.2s ease-in-out; 
     font-family:          inter;
-    width: 100%;
-    margin-bottom: 0.5rem;
+    width:                100%;
+    margin-bottom:        0.5rem;
     
   
     &:hover {
@@ -41,14 +39,39 @@
       padding: 2px 3px;
     }
   }
-  
-  .icon{
+  .sidebar a button img{
+    width: 2rem;
     padding-left: 0.5rem;
+    padding-right: 0.2rem;
+    fill: #212121;
   }
   
   .active {
-    color: #FFFFFF; 
-    background-color: red; 
+    color:              white;
+    font-size:            large;
+    display:              flex;
+    height:               3rem;
+    flex-grow:            1;
+    align-items:          center;
+    justify-content:      center;
+    gap:                  0.2rem;
+    border-radius:        1rem;
+    background-color:    gray; 
+    font-family:          inter; 
+    width:                100%;
+    margin-bottom:        0.5rem;
+    
+    &:hover {
+      background-color: lightcoral; 
+      color: #212121; 
+    }
+  
+  
+    @media (min-width: 768px) { 
+      flex-grow: initial;
+      justify-content: flex-start;
+      padding: 2px 3px;
+    }
   }
   
 

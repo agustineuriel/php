@@ -14,15 +14,58 @@ $connection = new mysqli('localhost', 'root', '', 'bsit2a');
 if ($connection->connect_error) {
     die('Connection Failed! : '. $connection->connect_error);
 }
+?>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="sidebar.css">
+    <link rel="stylesheet" type="text/css" href="global.css">
+    <link rel="stylesheet" type="text/css" href="content.css">
+    <title>Dashboard</title>
+</head>
+<body>
+    
+    <nav class="sidebar">
+    <div class="headerlogo">
+                <img class ="sidebarLogo" src="LOGO.png" alt="logo">
+                <h3 class = "padleft"> EA Street Motoshop <h3>
+    </div>
+    <h2>Hello, </h2> 
+    <h1><?php echo $user_firstname; ?>!</h1> 
+    <h2>Welcome to EA Street</h2>
+    <div>
+        <a href="/WEBSITE/dashboard.php"><button class="active"> <img src="dashboard.svg">Dashboard</button></a>
+    </div>
+    <div>
+        <a href="/WEBSITE/categories/categories.php"><button class="inactive"> <img src="categories.svg">Categories</button></a>
+    </div>
+
+    <div>
+        <a href="/WEBSITE/products/products.php"><button class="inactive"> <img src="products.svg">Products</button></a>
+    </div>
+
+    <div>
+        <a href="/WEBSITE/users/users.php"><button class="inactive"> <img src="users.svg">Users</button></a>
+    </div>
+    <div>
+        <a href="/WEBSITE/login.php"><button class="inactive"> <img src="logout.svg">Log Out</button></a>
+    </div>
+   </div>
+    </nav>
+
+<?php
 $sql = "SELECT product_category, COUNT(*) as total FROM products GROUP BY product_category";
 $result = $connection->query($sql);
 
 if ($result->num_rows > 0) {
    ?>
-    <div class="card">
-        <div class="card-body table-responsive">
-            <table class="table table-striped table-valign-middle">
+        <div class="content">
+            <div class="header"> Dashboard 
+            </div>
+            <table>
                 <thead>
                     <tr>
                         <th>Category</th>
@@ -38,7 +81,6 @@ if ($result->num_rows > 0) {
                     <?php }?>
                 </tbody>
             </table>
-        </div>
     </div>
     <?php
 } else {
@@ -47,46 +89,6 @@ if ($result->num_rows > 0) {
 
 $connection->close();
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="sidebar.css">
-    <link rel="stylesheet" type="text/css" href="global.css">
-    <title>Dashboard</title>
-</head>
-<body>
-    
-    <nav class="sidebar">
-    <div class="headerlogo">
-                <img class ="sidebarLogo" src="LOGO.png" alt="logo">
-                <h3 class = "padleft"> EA Street Motoshop <h3>
-    </div>
-    <h2>Hello, </h2> 
-    <h1><?php echo $user_firstname; ?>!</h1> 
-    <h2>Welcome to Motoshop</h2>
-    <div>
-        <a href="/WEBSITE/dashboard.php" class="active"><button>Dashboard</button></a>
-    </div>
-    <div>
-        <a href="/WEBSITE/categories/categories.php"><button>Categories</button></a>
-    </div><br>
-
-    <div>
-        <a href="/WEBSITE/products/products.php"><button>Products</button></a>
-    </div><br>
-
-    <div>
-        <a href="/WEBSITE/users/users.php"><button>Users</button></a>
-    </div>
-    <div>
-        <a href="/WEBSITE/login.php"><button>Log Out</button></a>
-    </div>
-   </div>
-    </nav>
-
 
 </body>
 </html>
