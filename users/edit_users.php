@@ -18,6 +18,10 @@ if (!$connection) {
 }
 ?>
 
+<?php
+// Include database connection code or establish connection here
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,14 +32,15 @@ if (!$connection) {
 <body>
     <h2>Edit User</h2>
     <?php
-    // Retrieve user deets
+    // Retrieve user details based on ID passed in URL
     if(isset($_GET['id'])) {
         $user_id = $_GET['id'];
-        $query = "SELECT * FROM user WHERE user_email = $user_email";
+        $query = "SELECT * FROM user WHERE user_id = $user_id";
         $result = mysqli_query($connection, $query);
         $user = mysqli_fetch_assoc($result);
     ?>
     <form action="update_users.php" method="post">
+        <input type="hidden" name="user_id" value="<?php echo $user['user_id']; ?>">
         <label>First Name:</label>
         <input type="text" name="user_firstname" value="<?php echo $user['user_firstName']; ?>" required><br>
         <label>Last Name:</label>
@@ -48,7 +53,8 @@ if (!$connection) {
         <input type="email" name="user_email" value="<?php echo $user['user_email']; ?>" required><br>
         <label>Password:</label>
         <input type="password" name="user_password" value="<?php echo $user['user_password']; ?>" required><br>
-        <input type="submit" value="Update">
+        <input type="submit" value="Update"><br><br>
+        <a href="/WEBSITE/users/users.php"><button>Go Back</button></a>
     </form>
     <?php
     } else {

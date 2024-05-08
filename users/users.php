@@ -38,7 +38,7 @@ if ($result) {
             echo "<td>".$row['user_contactNum']."</td>";
             echo "<td>".$row['user_email']."</td>";
             echo "<td>".$row['user_password']."</td>";
-            echo "<td><a href='edit_users.php?id=".$row['user_email']."'>Edit</a> | <a href='delete_users.php?id=".$row['user_email']."'>Delete</a></td>";
+            echo "<td><a href='edit_users.php?id=".$row['user_id']."'>Edit</a> | <a href='delete_users.php?id=".$row['user_id']."'>Delete</a></td>";
             echo "</tr>";
         }
         echo "</table>";
