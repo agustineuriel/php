@@ -50,12 +50,12 @@ if (!$connection) {
         <label>Password:</label>
         <input type="password" name="user_password" value="<?php echo $user['user_password']; ?>" required><br>
         <input type="submit" value="Update"><br><br>
-        <a href="/WEBSITE/users/users.php"><button>Go Back</button></a>
     </form>
     <?php
     } else {
         echo "User ID not provided.";
     }
     ?>
+    <a href="/WEBSITE/users/users.php"><button>Go Back</button></a>
 </body>
 </html>

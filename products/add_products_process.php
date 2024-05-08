@@ -13,7 +13,7 @@ if ($connection->connect_error) {
     die('Connection Failed! : ' . $connection->connect_error);
 }
 
-// gina check if ga exist na ang product
+// gina check if may ga exist na nga product id
 $check_product_id_sql = "SELECT * FROM products WHERE product_id = ?";
 $check_product_id_stmt = $connection->prepare($check_product_id_sql);
 $check_product_id_stmt->bind_param("i", $product_id);
@@ -41,6 +41,6 @@ if ($check_product_id_result->num_rows > 0) {
 }
 ?>
 <link rel="stylesheet" href="styles.css">
-<a href="/WEBSITE/products/products.php"><button>Go Back</button></a>
+<a href="/WEBSITE/products/add_products.php"><button>Go Back</button></a>
 <a href="/WEBSITE/products/view_products.php"><button>View Products</button></a>
 <a href="/WEBSITE/dashboard.php"><button>View Dashboard</button></a>
