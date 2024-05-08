@@ -68,7 +68,7 @@ if ($connection->connect_error) {
     die('Connection Failed! : ' . $connection->connect_error);
 }
 
-// gina check if ga exist na ang product
+// gina check if may ga exist na nga product id
 $check_product_id_sql = "SELECT * FROM products WHERE product_id = ?";
 $check_product_id_stmt = $connection->prepare($check_product_id_sql);
 $check_product_id_stmt->bind_param("i", $product_id);

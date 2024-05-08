@@ -1,56 +1,31 @@
 <?php
 session_start();
-$email= $_POST["email"];
-$password = $_POST["password"];
-?>
 
+$email = $_POST['email'];
+$password = $_POST['password'];
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/global.css"> 
-    <title>Login</title>
-</head>
-<body>
-    <?php
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+$connection = new mysqli('localhost', 'root', '', 'bsit2a');
 
-    $connection = new mysqli('localhost', 'root', '', 'bsit2a');
+if ($connection->connect_error) {
+    die('Connection Failed! : '. $connection->connect_error);
+}
 
-    if ($connection->connect_error) {
-        die('Connection Failed! : ' . $connection->connect_error);
-    }
+$statement = $connection->prepare("SELECT user_firstname, user_lastname, user_gender, user_contactNum, user_email, user_password FROM user WHERE user_email =? AND user_password =?");
+$statement->bind_param("ss", $email, $password);
+$statement->execute();
+$result = $statement->get_result();
 
-    $statement = $connection->prepare("SELECT user_firstname FROM user WHERE user_email = ? AND user_password = ?");
-    $statement->bind_param("ss", $email, $password);
-    $statement->execute();
-    $result = $statement->get_result();
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $_SESSION['user_firstname'] = $row['user_firstname'];
+    $_SESSION['user_lastname'] = $row['user_lastname'];
+    $_SESSION['user_gender'] = $row['user_gender'];
+    $_SESSION['user_contactNum'] = $row['user_contactNum'];
+    $_SESSION['user_email'] = $row['user_email'];
+    $_SESSION['user_password'] = $row['user_password'];
 
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-    ?>
-
-        <div class="center">
-            <div class="headerlogo">
-                <img class ="roundlogo" src="pictures/LOGO.png" alt="logo">
-                <h3 class = "padleft"> EA Street Motoshop <h3>
-            </div>
-
-            <h2><?php echo "Login successful"; ?></h2>
-            <h1><?php echo "Welcome, " . $row['user_firstname'] . "!"; ?></h1>
-            <div class="dashboard3d">
-            <img src="pictures/dashboard.png" alt="dashboard">
-            </div>
-            <a href="dashboard.php"><button class="viewDashboard"> View Dashboard <img class="next" src="pictures/next.png" alt="Next"></button></a>
-        </div>
-
-    <?php
-    } else {
-        echo "Incorrect email/password!";
-    }
-    ?>
-</body>
-</html>
+    header('Location: dashboard.php');
+    exit;
+} else {
+    echo "Incorrect email/password!";
+}

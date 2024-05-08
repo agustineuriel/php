@@ -1,26 +1,40 @@
 <?php
 session_start();
 
-$_SESSION['user_firstname'] = $_POST['user_firstname'];
-$_SESSION['user_lastname'] = $_POST['user_lastname'];
-$_SESSION['user_gender'] = $_POST['user_gender'];
-$_SESSION['user_contactNum'] = $_POST['user_contactNum'];
-$_SESSION['user_email'] = $_POST['user_email'];
+if (isset($_POST['user_firstname'], $_POST['user_lastname'], $_POST['user_gender'], $_POST['user_contactNum'], $_POST['user_email'], $_POST['user_password'])) {
+    $user_firstname = filter_input(INPUT_POST, 'user_firstname', FILTER_SANITIZE_STRING);
+    $user_lastname = filter_input(INPUT_POST, 'user_lastname', FILTER_SANITIZE_STRING);
+    $user_gender = filter_input(INPUT_POST, 'user_gender', FILTER_SANITIZE_STRING);
+    $user_contactNum = filter_input(INPUT_POST, 'user_contactNum', FILTER_SANITIZE_NUMBER_INT);
+    $user_email = filter_input(INPUT_POST, 'user_email', FILTER_SANITIZE_EMAIL);
+    $user_password = filter_input(INPUT_POST, 'user_password', FILTER_SANITIZE_STRING);
 
-if(isset($_POST['user_firstname'], $_POST['user_lastname'], $_POST['user_gender'], $_POST['user_contactNum'], $_POST['user_email'], $_POST['user_password'])) {
-    $user_firstname = $_POST['user_firstname'];
-    $user_lastname = $_POST['user_lastname'];
-    $user_gender = $_POST['user_gender'];
-    $user_contactNum = $_POST['user_contactNum'];
-    $user_email = $_POST['user_email'];
-    $user_password = $_POST['user_password'];
+    if (!preg_match("/^[a-zA-Z ]*$/", $user_firstname)) {
+        echo "Only letters and white space allowed in first name.";
+        exit();
+    }
+
+    if (!preg_match("/^[a-zA-Z ]*$/", $user_lastname)) {
+        echo "Only letters and white space allowed in last name.";
+        exit();
+    }
+
+    if (!preg_match("/^[0-9]{11}$/", $user_contactNum)) {
+        echo "Invalid contact number.";
+        exit();
+    }
+
+    if (!filter_var($user_email, FILTER_VALIDATE_EMAIL) || strpos($user_email, '.com') !== strlen($user_email) - 4) {
+        echo "Invalid email format or invalid domain.";
+        exit();
+    }
 
     if (!empty($user_firstname) && !empty($user_lastname) && !empty($user_gender) && !empty($user_contactNum) && !empty($user_email) && !empty($user_password)) {
         $connection = new mysqli('localhost', 'root', '', 'bsit2a');
-        if($connection->connect_error){
-            die('Connection Failed! : '.$connection->connect_error);
+        if ($connection->connect_error) {
+            die('Connection Failed! : ' . $connection->connect_error);
         } else {
-            // Check if the email already exists in the database
+            
             $query = "SELECT * FROM user WHERE user_email = ?";
             $stmt = $connection->prepare($query);
             $stmt->bind_param("s", $user_email);
@@ -53,3 +67,6 @@ if(isset($_POST['user_firstname'], $_POST['user_lastname'], $_POST['user_gender'
     echo "Form data not received.";
 }
 ?>
+<link rel="stylesheet" href="styles.css">
+<a href="/WEBSITE/register.php"><button>Go Back</button></a>
+<a href="/WEBSITE/login.php"><button>Login</button></a>
