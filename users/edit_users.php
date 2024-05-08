@@ -18,10 +18,6 @@ if (!$connection) {
 }
 ?>
 
-<?php
-// Include database connection code or establish connection here
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
