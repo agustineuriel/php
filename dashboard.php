@@ -21,8 +21,8 @@ $user_password = htmlspecialchars($_SESSION['user_password']);
 <body>
     
     <nav class="sidebar">
-    <h2>Hello </h2> 
-    <h1><?php echo $user_firstname; ?></h1> 
+    <h2>Hello, </h2> 
+    <h1><?php echo $user_firstname; ?>!</h1> 
     <h2>Welcome to the Dashboard</h2>
     <div>
         <a href="/WEBSITE/categories/categories.php"><button>Categories</button></a>
