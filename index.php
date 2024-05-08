@@ -26,15 +26,15 @@
     <div class="row radio-container">
         <div class="col-md-6 ">
             <label class="radio-inline">
-            <input type="radio" name="user_gender" value="Male" <?php if (isset($_POST['user_gender']) && $_POST['user_gender'] == "Male") echo "checked"; ?> /> Male
+            <input type="radio" name="user_gender" value="Male" <?php if (isset($_POST['user_gender']) && $_POST['user_gender'] == "Male") echo "checked"; ?> required/> Male
             </label>
             <label class="radio-inline">
-            <input type="radio" name="user_gender" value="Female" <?php if (isset($_POST['user_gender']) && $_POST['user_gender'] == "Female") echo "checked"; ?> /> Female
+            <input type="radio" name="user_gender" value="Female" <?php if (isset($_POST['user_gender']) && $_POST['user_gender'] == "Female") echo "checked"; ?> required/> Female
             </label>
         </div>
 
     </div>
-    
+
     <label>Contact Number</label>
     <input type="text" name="user_contactNum" name="user_contactNum" required>
 

@@ -17,7 +17,8 @@ if (!$connection) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-if(isset($_POST['user_firstname'], $_POST['user_lastname'], $_POST['user_gender'], $_POST['user_contactNum'], $_POST['user_email'], $_POST['user_password'])) {
+if(isset($_POST['user_id'], $_POST['user_firstname'], $_POST['user_lastname'], $_POST['user_gender'], $_POST['user_contactNum'], $_POST['user_email'], $_POST['user_password'])) {
+    $user_id = $_POST['user_id'];
     $user_firstname = $_POST['user_firstname'];
     $user_lastname = $_POST['user_lastname'];
     $user_gender = $_POST['user_gender'];
@@ -26,7 +27,7 @@ if(isset($_POST['user_firstname'], $_POST['user_lastname'], $_POST['user_gender'
     $user_password = $_POST['user_password'];
 
     // Update user in the database
-    $query = "UPDATE user SET user_firstname='$user_firstname', user_lastname='$user_lastname', user_gender='$user_gender', user_contactNum='$user_contactNum', user_password='$user_password' WHERE user_email=$user_email";
+    $query = "UPDATE user SET user_firstname='$user_firstname', user_lastname='$user_lastname', user_gender='$user_gender', user_contactNum='$user_contactNum', user_email='$user_email', user_password='$user_password' WHERE user_id=$user_id";
     $result = mysqli_query($connection, $query);
 
     if($result) {
@@ -38,3 +39,5 @@ if(isset($_POST['user_firstname'], $_POST['user_lastname'], $_POST['user_gender'
     echo "Form data not received.";
 }
 ?>
+<br>
+<a href="/WEBSITE/users/users.php"><button>Go Back</button></a>
